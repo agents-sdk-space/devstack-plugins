@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/agents-sdk-space/devstack-plugins/schema/plugins.schema.json",
+  "title": "devstack.bid plugin catalog",
+  "type": "object",
+  "required": ["name", "plugins"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"type": "string"},
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "description", "category", "homepage", "source", "keywords"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+          "description": {"type": "string", "minLength": 10, "maxLength": 200},
+          "category": {"enum": ["development", "deployment", "database", "monitoring", "testing", "payments", "productivity", "design", "ai"]},
+          "homepage": {"type": "string", "pattern": "^https://"},
+          "source": {"type": "string", "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+          "keywords": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9-]+$"}}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "count": 6,
+  "categories": {
+    "database": [
+      "neon"
+    ],
+    "deployment": [
+      "cloudflare"
+    ],
+    "development": [
+      "github"
+    ],
+    "monitoring": [
+      "sentry"
+    ],
+    "payments": [
+      "stripe"
+    ],
+    "testing": [
+      "playwright"
+    ]
+  }
+}
